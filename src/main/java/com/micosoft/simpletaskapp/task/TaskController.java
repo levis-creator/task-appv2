@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 @CrossOrigin
 @RestController
-@RequestMapping("/category/{categoryId}/task")
+@RequestMapping("/api/v1/category/{categoryId}/task")
 @AllArgsConstructor
 public class TaskController {
     @Autowired
