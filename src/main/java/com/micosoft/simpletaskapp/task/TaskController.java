@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-@CrossOrigin(origins = "https://simpletaskapp-c3xt.onrender.com")
+@CrossOrigin(origins = "https://localhost:5173")
 @RestController
 @RequestMapping("/category/{categoryId}/task")
 @AllArgsConstructor
