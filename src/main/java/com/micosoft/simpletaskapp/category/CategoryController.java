@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin
+
+
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
+@CrossOrigin
     @GetMapping
     public List<CategoryDTO> getAllCategory() {
         return categoryService.getAllCategories();
