@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1//category")
+@RequestMapping("/api/v1/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
