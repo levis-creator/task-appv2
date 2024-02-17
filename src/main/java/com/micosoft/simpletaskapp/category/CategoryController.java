@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.UUID;
 
 
-
+@CrossOrigin(origins = "https://simpletaskapp-c3xt.onrender.com")
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-@CrossOrigin
+
     @GetMapping
     public List<CategoryDTO> getAllCategory() {
         return categoryService.getAllCategories();
