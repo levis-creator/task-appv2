@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-@CrossOrigin(origins = "https://localhost:5173")
+@CrossOrigin
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
