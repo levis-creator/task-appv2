@@ -1,9 +1,10 @@
 package com.micosoft.simpletaskapp.category;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,28 +18,28 @@ public class CategoryController {
 
 
     @GetMapping
-    public List<CategoryDTO> getAllCategory() {
-        return categoryService.getAllCategories();
+    public List<CategoryDTO> getAllCategory(Principal principal) {
+        return categoryService.getAllCategories(principal);
     }
 
     @GetMapping("{id}")
-    public CategoryDTO getSingleCategory(@PathVariable UUID id) {
-        return categoryService.getCategory(id);
+    public CategoryDTO getSingleCategory(@PathVariable UUID id, Principal principal) {
+        return categoryService.getCategory(id, principal);
     }
 
     @PostMapping
-    public void createCategory(@RequestBody CategoryDTO categoryDTO) {
-        categoryService.createCategory(categoryDTO);
+    public Category createCategory(Principal principal,@RequestBody CategoryDTO categoryDTO) {
+       return categoryService.createCategory(principal, categoryDTO);
 
     }
 
     @PutMapping("{id}")
-    public void  updatingCategory(@PathVariable UUID id, @RequestBody CategoryDTO categoryDTO){
-        categoryService.updateCategories(id, categoryDTO);
+    public ResponseEntity<Category> updatingCategory(@PathVariable UUID id, @RequestBody CategoryDTO categoryDTO, Principal principal){
+        return categoryService.updateCategories(id, categoryDTO, principal);
     }
     @DeleteMapping("{id}")
-    public void deleteCategory(@PathVariable UUID id){
-        categoryService.deleteCategory(id);
+    public void deleteCategory(@PathVariable UUID id, Principal principal){
+        categoryService.deleteCategory(id, principal);
     }
 
 }

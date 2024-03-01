@@ -1,6 +1,7 @@
 package com.micosoft.simpletaskapp.category;
 
 import com.micosoft.simpletaskapp.task.Task;
+import com.micosoft.simpletaskapp.user.AppUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,13 @@ public class Category {
     private String categoryName;
     private String color;
 
+
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "app_user_id")
+    private AppUser appUser;
 
     public Category(UUID id, String categoryName, String color) {
         this.id = id;
@@ -34,7 +40,7 @@ public class Category {
         this.color = color;
     }
 
-    public Category(String categoryName, String color) {
+    public Category(UUID uuid, String categoryName, String color, AppUser appUser) {
         this.categoryName = categoryName;
         this.color = color;
     }

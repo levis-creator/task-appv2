@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -20,7 +21,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class TaskServiceTest {
     TaskDTO taskDTO;
-    Category category = new Category("Home", "#fff");
+    Category category = new Category(UUID.randomUUID(), "Home", "#fff");
     Task task;
     List<Task> tasks = new ArrayList<>(
             List.of(
